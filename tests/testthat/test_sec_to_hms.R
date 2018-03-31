@@ -6,6 +6,7 @@ test_that("Test sec_to_hms: 0 to 9 sec", {
 })
 
 
-test_that("Test sec_to_hms: with a string!", {
-  expect_error(object = sec_to_hms("a"))
+test_that("Test sec_to_hms: invalid args are detected", {
+  expect_error(sec_to_hms("a"))
+  expect_error(sec_to_hms(iris))
 })
