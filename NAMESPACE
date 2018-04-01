@@ -2,6 +2,7 @@
 
 export(ap_sb_gr_duration_calculator)
 export(duration_calculator)
+export(insert_row)
 export(prot_oos_duration_calculator)
 export(sec_to_hms)
 import(dplyr)
