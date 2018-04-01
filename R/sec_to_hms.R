@@ -1,12 +1,19 @@
 #' Function that converts seconds to a character format hh:mm:ss
 #' @param secs a number of seconds to be formatted
-#' @description This function converts a number of seconds to a character format hh:m:ss
+#' @description
+#' This function converts a number of seconds to a character format hh:m:ss
+#'
+#' @return A character vector of formatted seconds
+#' @examples
+#' sec_to_hms(c(8, 66))
+#' sec_to_hms(8 + 66)
 #' @export
+
 
 sec_to_hms <- function(secs) {
 
   if(any(is.na(secs))) stop("Unable to format NA values.\n",
-                       "Please remore NA values before running function")
+                            "Please remore NA values before running function")
   if(! is.numeric(secs)) stop("secs must be of class numeric")
   if(any(secs < 0)) stop("secs must be a positive number")
 
