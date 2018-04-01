@@ -7,7 +7,6 @@
 #'
 #' @return returns a character vector of summed times
 #' @export
-#' @examples
 
 sum_hms <- function(times) {
   times.sec <- sum(lubridate::period_to_seconds(lubridate::hms(times)))
