@@ -1,3 +1,4 @@
+context("test_sec_to_hms.R")
 library("testthat")
 library("avr")
 
@@ -8,14 +9,17 @@ test_that("Test sec_to_hms: seconds are formatted correctly", {
 })
 
 
-test_that("Test sec_to_hms: invalid args are detected", {
+test_that("sec_to_hms: invalid args are detected", {
   expect_error(sec_to_hms("a"))
+  expect_error(sec_to_hms(-10))
   expect_error(sec_to_hms(iris))
+  expect_error(sec_to_hms(c(1, NA)))
 })
 
 
 
 # to fix ---------------------------------------------------------------------
 
-# give warning?
-# sec_to_hms(c(1,NA))
+# test_dir("tests")
+# test_file("test_sec_to_hms.R")
+# test_file("C:/Users/avrin/ownCloud/Goettingen/PhD Thesis/Data/R custom packages/avr/tests/testthat/test_sec_to_hms.R")
