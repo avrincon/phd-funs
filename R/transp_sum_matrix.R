@@ -20,7 +20,7 @@ transp_sum_matrix <- function(m) {
   # This matrix contains the combined frequencies for each dyad
   m.sum <- matrix(mapply(sum, m, t.m,
                          MoreArgs = list(na.rm = T)),
-                  ncol = length(matrix_cols))
+                  ncol = ncol(m))
 
   # label row and column names
   rownames(m.sum) <- rownames(m)
