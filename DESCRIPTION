@@ -5,7 +5,7 @@ Authors@R: person("Alan", "Rincon", email = "avrincon1@gmail.com",
     role = c("aut", "cre"))
 Description: Helper functions that are most useful for calculating duration of 
     behaviours in focal observations and to calculate the CSI.
-Depends: R (>= 3.4.3)
+Depends: R (>= 3.4.1)
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
