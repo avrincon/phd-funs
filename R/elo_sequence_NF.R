@@ -12,7 +12,7 @@
 #' @param priorRankCategory a list of IDs (case sensitive), and associate rank categories ("alpha", high", "medium", "low"): will accept initial letters & is case insensitive (e.g. "a", "H" ...). Individuals not listed will start with default Elo-rating (i.e. 'startingvalue'). Processed only if 'priorElo' & 'priorRanks' not specified.
 #' @param priorRankIndex default is 0 for a distance between starting ranks equal to ‘k’; for a degree of despotism, such that elo-rating distances between high ranking males and others are exaggerated, enter reciprocal power: 0.3 works well. 
 #' @param outcome 1 = first individual wins; 2 = second individual wins; 0 = draw 
-
+#' @export
 
 elo_sequence_NF <-
   function(datafile = "c:\\example data.csv", sep=",", startingvalue = 1000, 
