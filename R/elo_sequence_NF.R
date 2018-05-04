@@ -165,7 +165,7 @@ elo_sequence_NF <-
       log_table[(length(all_ids) + (2 * i - 1)):(length(all_ids) + (2 * i)), 6] <- outCm
       
       # calculates the new ratings for the two interacting individuals
-      log_table[(length(all_ids) + (2 * i - 1)):(length(all_ids) + (2 * i)), 4] <- as.numeric(elo.single(currentELO[which(names(currentELO)==cont1)], currentELO[which(names(currentELO)==cont2)], outcome=outCm, constant_k=constK))
+      log_table[(length(all_ids) + (2 * i - 1)):(length(all_ids) + (2 * i)), 4] <- as.numeric(EloRating::e.single(currentELO[which(names(currentELO)==cont1)], currentELO[which(names(currentELO)==cont2)], outcome=outCm, constant_k=constK))
       
       # fills the respective date of the interaction
       log_table[(length(all_ids) + (2 * i - 1)):(length(all_ids) + (2 * i)), 3] <- as.Date(IA_data$Date[i])
