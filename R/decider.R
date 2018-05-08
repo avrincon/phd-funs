@@ -8,7 +8,10 @@
 #' @export
 
 decider <- function(x) {
-  # fill in double interaction column  w/ "include", "exclude" or "check"
+  # create new empty column to fill with decision
+  x$double_interaction <- NA
+
+  # fill in double interaction column  w/ "include", "exclude"
   for (i in seq_len(nrow(x))){
     # if focal and action_partner have the same dyad count for a particular date
     if(x$focal_dyad_count[[i]] == x$partner_dyad_count[[i]]){

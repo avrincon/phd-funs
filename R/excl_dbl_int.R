@@ -9,15 +9,17 @@
 #' @export
 #' @import dplyr
 
-excl_dbl_int <- function(df){
+excl_dbl_int <- function(df, join_by){
   df <- check_part(df)
   df_int <- get_int_decision(df)
 
-  # merge ap with ap_int, keep all rows
-  df <- left_join(df, df_int) %>% #,
-    # by = c("rowid", "protocol_start_time", "date", "observer",
-    #        "action_time", "focal_animal", "action_partner",
-    #        "duration", "dyad", "check_partner")) %>%
+  # get column names in common to join by
+  join_by <- intersect(names(df), names(df_int))
+
+  # merge df with df_int, keep all rows
+  df <-
+    df %>%
+    left_join(df_int, by = join_by) %>%
     mutate(double_interaction = ifelse(is.na(.$double_interaction),
                                        "no", .$double_interaction)) %>%
     filter(!double_interaction == "exclude")

@@ -9,6 +9,8 @@
 get_p_dyad_count <- function(x){
   # create vector with all date_focal_partner combinations - to be used in for loop
   date_focal_partner <- paste0(x$date, x$focal_animal, x$action_partner)
+  # create empty column to fill in with count
+  x$partner_dyad_count <- NA
 
   # create action_partner partner_dyad_count column
   # whith count of dyads from action_partner's perspective
