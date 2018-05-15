@@ -12,4 +12,5 @@ LazyData: true
 RoxygenNote: 6.0.1
 Imports:
     dplyr (>= 0.7.4),
-    lubridate (>= 1.7.3)
+    lubridate (>= 1.7.3),
+    tidyr (>= 0.8.0)
