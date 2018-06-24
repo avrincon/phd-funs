@@ -2,6 +2,7 @@
 
 export(add_zero_obstime)
 export(ap_sb_gr_duration_calculator)
+export(check_missing_start_end)
 export(check_part)
 export(decider)
 export(decider_diff_count)
