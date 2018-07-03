@@ -12,7 +12,7 @@ _helper functions:_
 * sec_to_hms()  
 
 ### CSI functions
-FUnctions that are usefull when calculating the CSI:  
+Functions that are usefull when calculating the CSI:  
 
 
 
@@ -29,3 +29,11 @@ i.e. when two focal animals interact with each other:
 * get_int_decision()  
 * excl_dbl_int()  
 
+### highlight si/ei of da/pa
+Functions that are useful to calculate da/pa interaction chunks
+
+- check_da_ei()
+- add_trackers()
+- highlight_sibc()
+- highlight_si()
+- map_nest()
