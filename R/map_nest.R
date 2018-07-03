@@ -14,12 +14,10 @@
 #' @export
 #'
 #' @import dplyr
-#' @import tidyr
-#' @import purrr
-#'
+
 map_nest <- function(x, ..., f) {
-  group_var <- purrr::quos(...)
-  f <- purrr::enquo(f)
+  group_var <- rlang::quos(...)
+  f <- rlang::enquo(f)
 
   x <- x %>%
     # nest dataframe based on (duplicated) groups
