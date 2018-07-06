@@ -13,7 +13,7 @@
 sec_to_hms <- function(secs) {
 
   if(any(is.na(secs))) stop("Unable to format NA values.\n",
-                            "Please remore NA values before running function")
+                            "Please remove NA values before running function")
   if(! is.numeric(secs)) stop("secs must be of class numeric")
   if(any(secs < 0)) stop("secs must be a positive number")
 
