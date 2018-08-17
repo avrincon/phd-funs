@@ -6,8 +6,8 @@
 \usage{
 elo_sequence_NF(datafile = "c:\\\\example data.csv", sep = ",",
   startingvalue = 1000, constant_k = 200, priorElo = list(),
-  priorRanks = list(), priorRankCategory = list(), priorRankIndex = 0,
-  outcome = 1)
+  priorRanks = list(), priorRankCategory = list(),
+  priorRankIndex = 0, outcome = 1)
 }
 \arguments{
 \item{datafile}{the path and file name of the csv data file with the interaction data; alternatively, will read existing dataframe}
