@@ -15,12 +15,14 @@ _helper functions:_
 Functions that are usefull when calculating the CSI:  
 
 - obs_time_calculator()
-- add_zero_obstime()
 - obs_time_matrix()
+- dyad_obs_total()
+- get_obs_time_s()
 - freq_matrix()
 - transp_sum_matrix()
 - sum_duration()
 - dur_matrix()
+
 
 ### Exclude double focal interactions
 List of functions used when double focal interactions.
@@ -43,3 +45,9 @@ Functions that are useful to calculate da/pa interaction chunks
 - highlight_si()
 - highlight_si_rev()
 - map_nest()
+
+### classify da_pa_ids
+- classify_da_id()
+_helper functions:_
+- class_da_id()
+- class_agg_action_intensity()
