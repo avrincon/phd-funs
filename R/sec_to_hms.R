@@ -12,10 +12,8 @@
 
 sec_to_hms <- function(secs) {
 
-  if(any(is.na(secs))) stop("Unable to format NA values.\n",
-                            "Please remove NA values before running function")
+  if(any(is.na(secs))) warning("At least one value was NA.")
   if(! is.numeric(secs)) stop("secs must be of class numeric")
-  if(any(secs < 0)) stop("secs must be a positive number")
 
   # integer division to ger the number of full min
   full.mins <- secs %/% 60
