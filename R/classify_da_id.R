@@ -13,7 +13,7 @@
 #'
 #' @import dplyr
 
-classify_da_id <- function(x, agg.low, agg.high, id, tag) {
+classify_da_id <- function(x, agg.low, agg.high, id, tag = NULL) {
 
   # get MM agg but only within group
   x.da <-

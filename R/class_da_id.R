@@ -11,11 +11,16 @@
 #'
 #' @import dplyr
 
-class_da_id <- function(x, tag) {
+class_da_id <- function(x, tag = NULL) {
   # highlight for each da_pa_id whether focal had at least one high/low intesity agg
 
-  giv_name <- paste0("da_giv_", tag)
-  rec_name <- paste0("da_rec_", tag)
+  if(is.null(tag)) {
+    giv_name <- "da_giv"
+    rec_name <- "da_rec"
+  } else {
+    giv_name <- paste0("da_giv_", tag)
+    rec_name <- paste0("da_rec_", tag)
+  }
 
   x <-
     x %>%
