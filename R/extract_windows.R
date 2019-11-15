@@ -6,13 +6,13 @@
 #' which identifies which sample the window belongs to. Then stacks all sample 
 #' windows on top of each other into one big data frame. 
 #' 
-#' Currently needs these columns with exact names: "at_sec_since_mdn", 
+#' Currently needs these columns with exact names: "action_time_of_day_sec", 
 #' "focal_animal", "date"
 #' 
 #' @param df Data frame of focal observations
 #' @param ur Vector of urine sample numbers
-#' @param window_start Start of window relative to urine (in seconds)  
-#' @param window_end End of window relative to urine (in seconds)
+#' @param window_start Start of window relative to time of urine collection (in seconds)  
+#' @param window_end End of window relative to time of urine collection (in seconds)
 #'
 #' @return Retruns a data frame of all sample windows. 
 #' 
@@ -29,28 +29,28 @@ extract_windows <- function(df, ur, window_start, window_end){
   for(sample in seq_len(length(ur))){
     # time in focal when sample was collected
     sample_time <- 
-      df %>% filter(sample_num == ur[[sample]]) %>% pull("at_sec_since_mdn")
+      df %>% filter(urine_sample_num == ur[[sample]]) %>% pull("action_time_of_day_sec")
     
     sample_male_id <- 
-      df %>%  filter(sample_num == ur[[sample]]) %>% pull("focal_animal")
+      df %>%  filter(urine_sample_num == ur[[sample]]) %>% pull("focal_animal")
     
     sample_date <- 
-      df %>% filter(sample_num == ur[[sample]]) %>% pull("date")
+      df %>% filter(urine_sample_num == ur[[sample]]) %>% pull("date")
     
     # define start and end time of peak hormone secretion in urine
     # 15 - 60 min in OT, 45 - 530 min in steroids
-    sample_window_start <- sample_time - window_start 
-    sample_window_end <- sample_time - window_end 
+    sample_window_start <- sample_time + window_start 
+    sample_window_end <- sample_time + window_end 
     # filter for behaviours that occured in window.
     sample_window <- df %>% 
-      filter(at_sec_since_mdn >= sample_window_end &  
-               at_sec_since_mdn <= sample_window_start & 
+      filter(action_time_of_day_sec >= sample_window_start &  
+               action_time_of_day_sec <= sample_window_end & 
                focal_animal == sample_male_id & 
                date == sample_date)
     
     # bind "ur" entry to subsetted dataframe
     sample_window <- sample_window %>% 
-      bind_rows(slice(df, which(sample_num ==ur[[sample]]))) 
+      bind_rows(slice(df, which(urine_sample_num ==ur[[sample]]))) 
     
     # create sample ref column with the sample number to ID window
     # create column with time sample was collected in sec since midnight
@@ -58,8 +58,8 @@ extract_windows <- function(df, ur, window_start, window_end){
     sample_window <- sample_window %>% 
       mutate(
         sample_ref = ur[[sample]],
-        sample_t_sec_since_mdn = sample_time,
-        time_relative_to_sample_m = (sample_t_sec_since_mdn - at_sec_since_mdn)/60)
+        sample_time_of_day_sec = sample_time,
+        time_relative_to_sample_m = (sample_time_of_day_sec - action_time_of_day_sec)/60)
     
     # add window for sample to df with all sample windows 
     all_windows[[sample]] <- sample_window

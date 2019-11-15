@@ -11,9 +11,9 @@ extract_windows(df, ur, window_start, window_end)
 
 \item{ur}{Vector of urine sample numbers}
 
-\item{window_start}{Start of window relative to urine (in seconds)}
+\item{window_start}{Start of window relative to time of urine collection (in seconds)}
 
-\item{window_end}{End of window relative to urine (in seconds)}
+\item{window_end}{End of window relative to time of urine collection (in seconds)}
 }
 \value{
 Retruns a data frame of all sample windows.
@@ -24,6 +24,6 @@ occurred between window_start and window_end. Adds a column called "sample_ref",
 which identifies which sample the window belongs to. Then stacks all sample 
 windows on top of each other into one big data frame. 
 
-Currently needs these columns with exact names: "at_sec_since_mdn", 
+Currently needs these columns with exact names: "action_time_of_day_sec", 
 "focal_animal", "date"
 }
