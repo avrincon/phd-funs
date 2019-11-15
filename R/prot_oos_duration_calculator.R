@@ -6,7 +6,7 @@
 #' @param d_focal frame of focal observations.
 #' Currently needs all these columns with exact same names:
 #' "date", "protocol_start_time", "focal_animal", "observer", "action_time",
-#' "actor", "action","at_sec_since_mdn"
+#' "actor", "action","action_time_of_day_sec"
 #' @inheritParams ap_sb_gr_duration_calculator
 #'
 #' @return adds two columns to d_focal. One with the total duration in seconds
@@ -34,7 +34,7 @@ prot_oos_duration_calculator <- function(d_focal,
                (actor == d.f) &
                (action %in% c(start_codes, end_codes))) %>%
       select("date", "protocol_start_time", "focal_animal", "observer",
-             "action_time", "actor", "action","at_sec_since_mdn")
+             "action_time", "actor", "action","action_time_of_day_sec")
 
     if(nrow(dyad.info) > 0 & nrow(dyad.info) %% 2 != 0){
       # error message when dyad does not have equal number of start and end codes
@@ -50,8 +50,8 @@ prot_oos_duration_calculator <- function(d_focal,
         mutate(
           duration_s =
             case_when(
-              action %in% start_codes ~ lead(at_sec_since_mdn) - at_sec_since_mdn,
-              action %in% end_codes ~ at_sec_since_mdn - lag(at_sec_since_mdn)),
+              action %in% start_codes ~ lead(action_time_of_day_sec) - action_time_of_day_sec,
+              action %in% end_codes ~ action_time_of_day_sec - lag(action_time_of_day_sec)),
           duration = sec_to_hms(duration_s))
 
       # add dyad duration to list

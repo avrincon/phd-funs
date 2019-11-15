@@ -11,7 +11,7 @@ duration_calculator(d_focal, start_codes, end_codes, focals,
 \item{d_focal}{data frame of focal observations.
 Currently needs all these columns with exact same names:
 "date", "protocol_start_time", "focal_animal", "observer", "action_time",
-"actor", "action", "receiver", "action_partner", "at_sec_since_mdn"}
+"actor", "action", "receiver", "action_partner", "action_time_of_day_sec"}
 
 \item{start_codes}{a character vector of action codes
 that indicate when a behaviour starts.}
