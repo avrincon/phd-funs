@@ -1,4 +1,4 @@
-Package: avr
+Package: phd-funs
 Title: Helper functions for PhD
 Version: 0.0.0.9000
 Authors@R: person("Alan", "Rincon", email = "avrincon1@gmail.com", 
