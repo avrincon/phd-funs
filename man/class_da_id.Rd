@@ -4,7 +4,7 @@
 \alias{class_da_id}
 \title{Classify da pa id}
 \usage{
-class_da_id(x, tag)
+class_da_id(x, tag = NULL)
 }
 \arguments{
 \item{x}{A data frame of focal observations}

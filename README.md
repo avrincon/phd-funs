@@ -1,4 +1,4 @@
-# avr
+# phdfuns
 
 ### Calculate duration
 List of functions used when calculating the duration of a behaviour:

@@ -4,7 +4,7 @@
 \alias{classify_da_id}
 \title{Classify da_pa_ids}
 \usage{
-classify_da_id(x, agg.low, agg.high, id, tag)
+classify_da_id(x, agg.low, agg.high, id, tag = NULL)
 }
 \arguments{
 \item{x}{A data frame of focal observations}
