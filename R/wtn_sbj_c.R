@@ -22,7 +22,7 @@ wtn_sbj_c <- function(x, behaviours, subject_var) {
     x %>% 
     # gather behaviours into one column to calculate mean per subject
     gather(key_1, value, behaviours) %>% 
-    group_by(!!!group_var, key_1) %>% 
+    group_by(!!group_var, key_1) %>% 
     mutate(mean = mean(value)) %>% 
     ungroup() %>% 
     # center by subtracting mean from value
