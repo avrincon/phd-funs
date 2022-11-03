@@ -1,6 +1,6 @@
 Package: phdfuns
 Title: Helper functions for PhD
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: person("Alan", "Rincon", email = "avrincon1@gmail.com", 
     role = c("aut", "cre"))
 Description: Helper functions that are most useful for calculating duration of 
